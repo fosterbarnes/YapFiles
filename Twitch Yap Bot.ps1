@@ -1,4 +1,4 @@
-﻿if (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) { 
+if (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) { 
     Start-Process powershell -ArgumentList "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs -WindowStyle Hidden 
     exit 
     } 
@@ -6,6 +6,7 @@
 $batchContent = @"
 @echo off
 title Twitch Yap Bot
+cd "%USERPROFILE%\Documents\Applications\Yap Bot\TwitchMarkovChain-2.4"
 "%LOCALAPPDATA%\Programs\Python\Python312\python.exe" "%USERPROFILE%\Documents\Applications\Yap Bot\TwitchMarkovChain-2.4\MarkovChainBot.py"
 exit
 "@
