@@ -113,6 +113,8 @@ Copy-Item -Path $yapSettingsTempFolder\* -Destination "$yapSettingsFolder" -Recu
 Copy-Item -Path "$env:USERPROFILE\Downloads\YapFiles\YapFiles-main\Twitch Yap Bot.ps1" -Destination "$env:USERPROFILE\Documents\Applications\Yap Bot" -Recurse -Force
 Copy-Item -Path "$env:USERPROFILE\Downloads\YapFiles\YapFiles-main\yap icon.ico" -Destination "$env:USERPROFILE\Documents\Applications\Yap Bot" -Recurse -Force
 Copy-Item -Path "$env:USERPROFILE\Downloads\YapFiles\YapFiles-main\yap icon purple.ico" -Destination "$env:USERPROFILE\Documents\Applications\Yap Bot" -Recurse -Force
+Copy-Item -Path "$env:USERPROFILE\Downloads\YapFiles\YapFiles-main\YapBotUninstaller.ps1" -Destination "$env:USERPROFILE\Documents\Applications\Yap Bot" -Recurse -Force
+Copy-Item -Path "$env:USERPROFILE\Downloads\YapFiles\YapFiles-main\YapEditor.ps1" -Destination "$env:USERPROFILE\Documents\Applications\Yap Bot" -Recurse -Force
 
 # Create Desktop shortcut for Twitch Yap Bot.ps1
 $scriptPath = "$env:USERPROFILE\Documents\Applications\Yap Bot\Twitch Yap Bot.ps1"
@@ -125,6 +127,18 @@ $Shortcut.Arguments = "-File `"$scriptPath`""
 $Shortcut.WorkingDirectory = [System.IO.Path]::GetDirectoryName($scriptPath)
 $Shortcut.IconLocation = "$env:USERPROFILE\Documents\Applications\Yap Bot\yap icon.ico"
 $Shortcut.Save()
+
+# Create Desktop shortcut for YapEditor.ps1
+$scriptPath1 = "$env:USERPROFILE\Documents\Applications\Yap Bot\YapEditor.ps1"
+$desktopPath1 = [System.IO.Path]::Combine([System.Environment]::GetFolderPath("Desktop"))
+$shortcutPath1 = [System.IO.Path]::Combine($desktopPath1, "Yap Editor.lnk")
+$WshShell1 = New-Object -ComObject WScript.Shell
+$Shortcut1 = $WshShell1.CreateShortcut($shortcutPath1)
+$Shortcut1.TargetPath = "powershell.exe"
+$Shortcut1.Arguments = "-File `"$scriptPath1`""
+$Shortcut1.WorkingDirectory = [System.IO.Path]::GetDirectoryName($scriptPath1)
+$Shortcut1.IconLocation = "$env:USERPROFILE\Documents\Applications\Yap Bot\yap icon purple.ico"
+$Shortcut1.Save()
 
 # Have the user make the shortcut run as admin
 [System.Console]::ForegroundColor = [System.ConsoleColor]::DarkGray
