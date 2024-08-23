@@ -154,8 +154,9 @@ Write-Host "`nPress any key to continue..."
 [void][System.Console]::ReadKey($true)
 [System.Console]::ForegroundColor = [System.ConsoleColor]::White
 
-#copy shortcut to start menu
+#copy shortcuts to start menu
 Copy-Item -Path "$env:USERPROFILE\Desktop\Twitch Yap Bot.lnk" -Destination "$env:USERPROFILE\Documents\Pinned Folders\Start Menu Programs" -Recurse -Force
+Copy-Item -Path "$env:USERPROFILE\Desktop\Yap Editor.lnk" -Destination "$env:USERPROFILE\Documents\Pinned Folders\Start Menu Programs" -Recurse -Force
 
 [System.Console]::ForegroundColor = [System.ConsoleColor]::DarkGray
 Write-Host ("`n-----------------------------STEP 5------------------------------`n")
