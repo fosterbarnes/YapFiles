@@ -135,7 +135,7 @@ $editorShortcut = $WshShell.CreateShortcut($editorShortcutPath)
 $editorShortcut.TargetPath = "powershell.exe"
 $editorShortcut.Arguments = "-File `"$editorScriptPath`""
 $editorShortcut.WorkingDirectory = [System.IO.Path]::GetDirectoryName($editorScriptPath)
-$editorShortcut.IconLocation = "$env:USERPROFILE\Documents\Applications\Yap Bot\yap icon.ico"
+$editorShortcut.IconLocation = "$env:USERPROFILE\Documents\Applications\Yap Bot\yap icon purple.ico"
 $editorShortcut.Save()
 
 # Have the user make the shortcut run as admin
