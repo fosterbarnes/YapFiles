@@ -61,7 +61,10 @@ Write-Host ("`n-----------------------------STEP 1------------------------------
 [System.Console]::ForegroundColor = [System.ConsoleColor]::White
 
 Write-Host "Yap Bot is a Python script. If you don't follow the next three steps
-Yap Bot will not work.
+and install Python, Yap Bot will not work.
+
+If you are updating or re-installing, you can skip the Python installation by 
+clicking cancel.
 
 1. After starting the Python installer, click 'Use admin priveleges when
 installing py.exe'
