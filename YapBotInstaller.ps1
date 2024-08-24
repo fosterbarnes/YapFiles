@@ -24,6 +24,11 @@ $pipPath = "C:\Users\$env:USERNAME\AppData\Local\Programs\Python\Python312\Scrip
 $requirementsUrl = "https://github.com/fosterbarnes/Twitch-Yap-Bot-Installer/raw/main/TwitchMarkovChain-2.4/requirements.txt"
 $tempFile = [System.IO.Path]::GetTempFileName()
 
+# Display an image
+# $scriptContent = Invoke-WebRequest -Uri "https://raw.githubusercontent.com/DevAndersen/posh-bucket/master/projects/consoleImageRenderer/consoleImageRenderer.ps1" -UseBasicParsing | Select-Object -ExpandProperty Content
+# $scriptBlock = [ScriptBlock]::Create($scriptContent)
+# & $scriptBlock -Path "D:\Users\Foster\Pictures\scary pearl 120.png" -Width 50 -Height 50
+
 # Function to download a file with progress reporting
 function Download-FileWithProgress {
     param (
@@ -53,7 +58,7 @@ if (-Not (Test-Path -Path $installerPath)) {
 }
 
 # Uninstalls previous yap bot versions
-Invoke-Expression (Invoke-WebRequest -Uri "https://raw.githubusercontent.com/fosterbarnes/Twitch-Yap-Bot-Installer/main/Installer%20Files/Yap%20Bot%20Uninstaller.ps1" | Select-Object -ExpandProperty Content)
+Invoke-Expression (Invoke-WebRequest -Uri "https://raw.githubusercontent.com/fosterbarnes/YapFiles/main/YapBotUninstaller.ps1" | Select-Object -ExpandProperty Content)
 
 
 [System.Console]::ForegroundColor = [System.ConsoleColor]::DarkGray
