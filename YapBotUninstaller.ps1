@@ -34,3 +34,5 @@ if (Test-Path -Path $startMenuShortcutPath2) {
     Remove-Item -Path $startMenuShortcutPath2 -Force -Confirm:$false
 } else {
 }
+
+Write-Host "Yap Bot has been uninstalled."
