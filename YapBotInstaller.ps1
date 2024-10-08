@@ -118,8 +118,10 @@ Copy-Item -Path $yapSettingsTempFolder\* -Destination "$yapSettingsFolder" -Recu
 Copy-Item -Path "$env:USERPROFILE\Downloads\YapFiles\YapFiles-main\Twitch Yap Bot.ps1" -Destination "$env:USERPROFILE\Documents\Applications\Yap Bot" -Recurse -Force
 Copy-Item -Path "$env:USERPROFILE\Downloads\YapFiles\YapFiles-main\yap icon.ico" -Destination "$env:USERPROFILE\Documents\Applications\Yap Bot" -Recurse -Force
 Copy-Item -Path "$env:USERPROFILE\Downloads\YapFiles\YapFiles-main\yap icon purple.ico" -Destination "$env:USERPROFILE\Documents\Applications\Yap Bot" -Recurse -Force
+Copy-Item -Path "$env:USERPROFILE\Downloads\YapFiles\YapFiles-main\yap icon blue.ico" -Destination "$env:USERPROFILE\Documents\Applications\Yap Bot" -Recurse -Force
 Copy-Item -Path "$env:USERPROFILE\Downloads\YapFiles\YapFiles-main\YapBotUninstaller.ps1" -Destination "$env:USERPROFILE\Documents\Applications\Yap Bot" -Recurse -Force
 Copy-Item -Path "$env:USERPROFILE\Downloads\YapFiles\YapFiles-main\YapEditor.ps1" -Destination "$env:USERPROFILE\Documents\Applications\Yap Bot" -Recurse -Force
+Copy-Item -Path "$env:USERPROFILE\Downloads\YapFiles\YapFiles-main\YapUpdater.ps1" -Destination "$env:USERPROFILE\Documents\Applications\Yap Bot" -Recurse -Force
 
 # Create Desktop shortcut for Twitch Yap Bot.ps1
 $scriptPath = "$env:USERPROFILE\Documents\Applications\Yap Bot\Twitch Yap Bot.ps1"
@@ -142,6 +144,16 @@ $editorShortcut.Arguments = "-File `"$editorScriptPath`""
 $editorShortcut.WorkingDirectory = [System.IO.Path]::GetDirectoryName($editorScriptPath)
 $editorShortcut.IconLocation = "$env:USERPROFILE\Documents\Applications\Yap Bot\yap icon purple.ico"
 $editorShortcut.Save()
+
+# Create Desktop shortcut for Yap Updater.ps1
+$UpdaterScriptPath = "$env:USERPROFILE\Documents\Applications\Yap Bot\YapBotUpdater.ps1"
+$UpdaterShortcutPath = [System.IO.Path]::Combine($desktopPath, "YapBotUpdater.lnk")
+$UpdaterShortcut = $WshShell.CreateShortcut($UpdaterShortcutPath)
+$UpdaterShortcut.TargetPath = "powershell.exe"
+$UpdaterShortcut.Arguments = "-File `"$UpdaterScriptPath`""
+$UpdaterShortcut.WorkingDirectory = [System.IO.Path]::GetDirectoryName($UpdaterScriptPath)
+$UpdaterShortcut.IconLocation = "$env:USERPROFILE\Documents\Applications\Yap Bot\yap icon blue.ico"
+$UpdaterShortcut.Save()
 
 # Have the user make the shortcut run as admin
 [System.Console]::ForegroundColor = [System.ConsoleColor]::DarkGray
