@@ -147,7 +147,7 @@ $editorShortcut.Save()
 
 # Create Desktop shortcut for Yap Updater.ps1
 $UpdaterScriptPath = "$env:USERPROFILE\Documents\Applications\Yap Bot\YapBotUpdater.ps1"
-$UpdaterShortcutPath = [System.IO.Path]::Combine($desktopPath, "YapBotUpdater.lnk")
+$UpdaterShortcutPath = [System.IO.Path]::Combine($desktopPath, "Yap Updater.lnk")
 $UpdaterShortcut = $WshShell.CreateShortcut($UpdaterShortcutPath)
 $UpdaterShortcut.TargetPath = "powershell.exe"
 $UpdaterShortcut.Arguments = "-File `"$UpdaterScriptPath`""
