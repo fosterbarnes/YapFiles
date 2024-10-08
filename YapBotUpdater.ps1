@@ -16,7 +16,7 @@ Copy-Item -Path "$env:USERPROFILE\Downloads\YapFiles\YapFiles-main\yap icon purp
 Copy-Item -Path "$env:USERPROFILE\Downloads\YapFiles\YapFiles-main\yap icon blue.ico" -Destination "$env:USERPROFILE\Documents\Applications\Yap Bot" -Recurse -Force
 Copy-Item -Path "$env:USERPROFILE\Downloads\YapFiles\YapFiles-main\YapBotUninstaller.ps1" -Destination "$env:USERPROFILE\Documents\Applications\Yap Bot" -Recurse -Force
 Copy-Item -Path "$env:USERPROFILE\Downloads\YapFiles\YapFiles-main\YapEditor.ps1" -Destination "$env:USERPROFILE\Documents\Applications\Yap Bot" -Recurse -Force
-Copy-Item -Path "$env:USERPROFILE\Downloads\YapFiles\YapFiles-main\YapUpdater.ps1" -Destination "$env:USERPROFILE\Documents\Applications\Yap Bot" -Recurse -Force
+Copy-Item -Path "$env:USERPROFILE\Downloads\YapFiles\YapFiles-main\YapBotUpdater.ps1" -Destination "$env:USERPROFILE\Documents\Applications\Yap Bot" -Recurse -Force
 
 Write-Host "`n-----------------------------------------------------------------"
 Write-Host "Twitch Yap Bot.ps1 saved to $env:USERPROFILE\Documents\Applications\Yap Bot\Twitch Yap Bot.ps1"
@@ -25,7 +25,7 @@ Write-Host "yap icon purple.ico saved to $env:USERPROFILE\Documents\Applications
 Write-Host "yap icon blue.ico saved to $env:USERPROFILE\Documents\Applications\Yap Bot\yap icon blue.ico"
 Write-Host "YapBotUninstaller.ps1 saved to $env:USERPROFILE\Documents\Applications\Yap Bot\YapBotUninstaller.ps1"
 Write-Host "YapEditor.ps1 saved to $env:USERPROFILE\Documents\Applications\Yap Bot\YapEditor.ps1"
-Write-Host "YapUpdater.ps1 saved to $env:USERPROFILE\Documents\Applications\Yap Bot\YapUpdater.ps1"
+Write-Host "YapUpdater.ps1 saved to $env:USERPROFILE\Documents\Applications\Yap Bot\YapBotUpdater.ps1"
 Write-Host "-----------------------------------------------------------------"
 
 #Cleanup
