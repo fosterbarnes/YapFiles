@@ -121,7 +121,7 @@ Copy-Item -Path "$env:USERPROFILE\Downloads\YapFiles\YapFiles-main\yap icon purp
 Copy-Item -Path "$env:USERPROFILE\Downloads\YapFiles\YapFiles-main\yap icon blue.ico" -Destination "$env:USERPROFILE\Documents\Applications\Yap Bot" -Recurse -Force
 Copy-Item -Path "$env:USERPROFILE\Downloads\YapFiles\YapFiles-main\YapBotUninstaller.ps1" -Destination "$env:USERPROFILE\Documents\Applications\Yap Bot" -Recurse -Force
 Copy-Item -Path "$env:USERPROFILE\Downloads\YapFiles\YapFiles-main\YapEditor.ps1" -Destination "$env:USERPROFILE\Documents\Applications\Yap Bot" -Recurse -Force
-Copy-Item -Path "$env:USERPROFILE\Downloads\YapFiles\YapFiles-main\YapUpdater.ps1" -Destination "$env:USERPROFILE\Documents\Applications\Yap Bot" -Recurse -Force
+Copy-Item -Path "$env:USERPROFILE\Downloads\YapFiles\YapFiles-main\YapBotUpdater.ps1" -Destination "$env:USERPROFILE\Documents\Applications\Yap Bot" -Recurse -Force
 
 # Create Desktop shortcut for Twitch Yap Bot.ps1
 $scriptPath = "$env:USERPROFILE\Documents\Applications\Yap Bot\Twitch Yap Bot.ps1"
