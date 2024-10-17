@@ -6,8 +6,8 @@ if (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
 $batchContent = @"
 @echo off
 title Twitch Yap Bot
-cd "%USERPROFILE%\Documents\Applications\Yap Bot\TwitchMarkovChain-2.4"
-"%LOCALAPPDATA%\Programs\Python\Python312\python.exe" "%USERPROFILE%\Documents\Applications\Yap Bot\TwitchMarkovChain-2.4\MarkovChainBot.py"
+cd "%USERPROFILE%\Documents\Applications\Yap Bot\TwitchMarkovChain"
+"%LOCALAPPDATA%\Programs\Python\Python312\python.exe" "%USERPROFILE%\Documents\Applications\Yap Bot\TwitchMarkovChain\MarkovChainBot.py"
 exit
 "@
 
