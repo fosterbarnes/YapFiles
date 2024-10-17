@@ -1,11 +1,22 @@
 # Set the title of the PowerShell window
 $Host.UI.RawUI.WindowTitle = "Yap Bot Updater"
 
-# Download TwitchMarkovChain-2.4, unzip and delete zip
+# Download TwitchMarkovChain & YapFiles, unzip and delete zip
+#Invoke-WebRequest -Uri "https://github.com/fosterbarnes/YapFiles/archive/refs/heads/main.zip" -OutFile "$env:USERPROFILE\Downloads\YapFiles.zip"
+#Add-Type -AssemblyName System.IO.Compression.FileSystem
+#[System.IO.Compression.ZipFile]::ExtractToDirectory("$env:USERPROFILE\Downloads\YapFiles.zip", "$env:USERPROFILE\Downloads\YapFiles")
+#Remove-Item -Path "$env:USERPROFILE\Downloads\YapFiles.zip"
+# Download TwitchMarkovChain, Yap Files, unzip and delete zip
 Invoke-WebRequest -Uri "https://github.com/fosterbarnes/YapFiles/archive/refs/heads/main.zip" -OutFile "$env:USERPROFILE\Downloads\YapFiles.zip"
+Invoke-WebRequest -Uri "https://github.com/fosterbarnes/TwitchMarkovChain/archive/refs/heads/main.zip" -OutFile "$env:USERPROFILE\Downloads\TwitchMarkovChain.zip"
 Add-Type -AssemblyName System.IO.Compression.FileSystem
 [System.IO.Compression.ZipFile]::ExtractToDirectory("$env:USERPROFILE\Downloads\YapFiles.zip", "$env:USERPROFILE\Downloads\YapFiles")
+[System.IO.Compression.ZipFile]::ExtractToDirectory("$env:USERPROFILE\Downloads\TwitchMarkovChain.zip", "$env:USERPROFILE\Downloads\TwitchMarkovChain")
 Remove-Item -Path "$env:USERPROFILE\Downloads\YapFiles.zip"
+Remove-Item -Path "$env:USERPROFILE\Downloads\TwitchMarkovChain.zip"
+Copy-Item -Path "$env:USERPROFILE\Downloads\TwitchMarkovChain\TwitchMarkovChain-main" -Destination "$env:USERPROFILE\Downloads\YapFiles\YapFiles-main" -Recurse
+Rename-Item -Path "$env:USERPROFILE\Downloads\YapFiles\YapFiles-main\TwitchMarkovChain-main" -NewName "TwitchMarkovChain"
+Remove-Item -Path "$env:USERPROFILE\Downloads\TwitchMarkovChain\" -Recurse -Force
 
 Write-Host "Updating Yap Bot..."
 

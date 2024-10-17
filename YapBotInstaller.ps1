@@ -21,7 +21,7 @@ $pythonUrl = "https://www.python.org/ftp/python/3.12.1/python-3.12.1-amd64.exe"
 $installerPath = "$env:USERPROFILE\Downloads\python-3.12.1-amd64.exe"
 $acctAuthUrl = "https://raw.githubusercontent.com/fosterbarnes/Twitch-Yap-Bot-Installer/main/Installer%20Files/AcctAuth3.0.ps1"
 $pipPath = "C:\Users\$env:USERNAME\AppData\Local\Programs\Python\Python312\Scripts\pip.exe"
-$requirementsUrl = "https://raw.githubusercontent.com/fosterbarnes/YapFiles/main/TwitchMarkovChain-2.4/requirements.txt"
+$requirementsUrl = "https://raw.githubusercontent.com/fosterbarnes/TwitchMarkovChain/refs/heads/main/requirements.txt"
 $tempFile = [System.IO.Path]::GetTempFileName()
 
 # Display an image
@@ -93,8 +93,10 @@ Write-Host "Installing python dependencies...`n"
 # Download the requirements.txt file
 Invoke-WebRequest -Uri $requirementsUrl -OutFile $tempFile
 
+
 # Install the Python packages
 & $pipPath install -r $tempFile
+& "C:\Users\$env:USERNAME\AppData\Local\Programs\Python\Python312\Scripts\pip.exe" install nltk
 
 [System.Console]::ForegroundColor = [System.ConsoleColor]::Yellow
 Write-Host "`nPress any key to continue..."
@@ -107,11 +109,11 @@ Write-Host ("`n-----------------------------STEP 3------------------------------
 Invoke-Expression (Invoke-WebRequest -Uri $acctAuthUrl | Select-Object -ExpandProperty Content)
 
 # Create Yap Bot folder
-$yapSettingsFolder = Join-Path -Path $env:USERPROFILE -ChildPath "Documents\Applications\Yap Bot\TwitchMarkovChain-2.4"
+$yapSettingsFolder = Join-Path -Path $env:USERPROFILE -ChildPath "Documents\Applications\Yap Bot\TwitchMarkovChain"
 New-Item -Path $yapSettingsFolder -ItemType Directory -Force | Out-Null
 
 # Copy temporary yap bot info to documents folder
-$yapSettingsTempFolder = Join-Path -Path $env:USERPROFILE -ChildPath "Downloads\YapFiles\YapFiles-main\TwitchMarkovChain-2.4"
+$yapSettingsTempFolder = Join-Path -Path $env:USERPROFILE -ChildPath "Downloads\YapFiles\YapFiles-main\TwitchMarkovChain"
 Copy-Item -Path $yapSettingsTempFolder\* -Destination "$yapSettingsFolder" -Recurse -Force
 
 #Copy twitch yap bot launcher and icons to documents
@@ -205,7 +207,7 @@ Write-Host "All done! Launch Yap Bot from the Desktop ot Start Menu, then use
 Have fun homie. Continuing with the installer will launch Yap
 This is what Yap Bot looks like when it's running properly:"
 Write-Host ("`n-----------------------------------------------------------------`n`n`n`n")
-Write-Host "C:\Users\Foster\Documents\Applications\Yap Bot\TwitchMarkovChain-2.4\MarkovChainBot.py:23: SyntaxWarning: invalid escape sequence '\w'
+Write-Host "C:\Users\Foster\Documents\Applications\Yap Bot\TwitchMarkovChain\MarkovChainBot.py:23: SyntaxWarning: invalid escape sequence '\w'
   self.link_regex = re,compile\w+\.a-z2.)
 [2024-08-23 16:31:44,955] [Settings] [INFO    ] - The following keys were missing from C:\Windows\system32\settings.json: .
 [2024-08-23 16:31:44,955] [Settings] [INFO    ] - These defaults of these values were used, and added to C:\Windows\system32\settings.json. Default behaviour will not change.
